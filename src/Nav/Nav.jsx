@@ -3,7 +3,7 @@ import Link from '../Link/Link';
 import { RiMenu2Line } from "react-icons/ri";
 import { useState } from 'react';
 import { RxCross2 } from "react-icons/rx";
-import { IoIosMenu } from "react-icons/io";
+
 
 const Nav = () => {
     const routes = [
@@ -14,8 +14,12 @@ const Nav = () => {
         { id: 5, name: "Profile", path: "/profile" }
       ];
       const [open , setopen]=useState(false);
+      const handeller =()=>{
+        console.log('this is from handeller')
+      }
       
     return (
+
         <nav className=' p-6 pl-6'>
         <div  className='md:hidden text-2xl'  onClick={()=>setopen(!open)}>
             {
@@ -25,14 +29,14 @@ const Nav = () => {
             </div>
             
          <div className=''>
-         <ul className={`absolute md:static md:flex duration-700 bg-red-700
+         <ul className={`absolute md:static md:flex duration-700 bg-green-600
           ${open?"mt-4":'-mt-96'}  justify-center md:mt-0
          `}>{
                 routes.map(route=><Link key={route.id} route={route}></Link>)
             }
             </ul>
          </div>
-        
+
 
         </nav>
     );
